@@ -3,14 +3,26 @@ body {
     padding: 10px;
     font-family: Arial, Helvetica, sans-serif;
     min-width: 400px;
+    border: 1px solid black;
 }
 
-input {
+#input-el {
     width: 100%;
     padding: 10px;
     box-sizing: border-box;
     border: 1px solid #5f9341;
-    margin-bottom: 4px;
+    margin-top: 10px;
+    border-radius: 10px;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input{
+    background-color: blue;
+    margin-left: 10px;
+    align-items: center;
+    margin-top: 5px;
 }
 
 button {
@@ -19,6 +31,13 @@ button {
     padding: 10px 20px;
     border: 1px solid #5f9341;
     font-weight: bold;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+#delete-checked-btn{
+    background: white;
+    color: #5f9341;   
 }
 
 #delete-btn {
@@ -27,7 +46,7 @@ button {
 }
 
 ul {
-    margin-top: 20px;
+    margin-top: 10px;
     list-style: none;
     padding-left: 0;
 }

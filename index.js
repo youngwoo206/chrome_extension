@@ -5,6 +5,10 @@ const ulEl = document.getElementById("ul-el")
 const deleteBtn = document.getElementById("delete-btn")
 const leadsFromLocalStorage = JSON.parse( localStorage.getItem("myLeads") )
 const tabBtn = document.getElementById("tab-btn")
+const deleteChecked = document.getElementById("delete-checked-btn")
+
+//testing links id 
+const link = document.getElementById("link_0")
 
 if (leadsFromLocalStorage) {
     myLeads = leadsFromLocalStorage
@@ -24,14 +28,21 @@ function render(leads) {
     for (let i = 0; i < leads.length; i++) {
         listItems += `
             <li>
-                <a target='_blank' href='${leads[i]}'>
-                    ${leads[i]}
-                </a>
+                <a target='_blank' href='${leads[i]}'>${leads[i]}</a><input type='checkbox' id="link_${i}"> 
             </li>
         `
     }
     ulEl.innerHTML = listItems
 }
+
+deleteChecked.addEventListener("dblclick", function () {
+    //not working
+    if (link) {
+        console.log("is checked")
+    }
+})
+
+
 
 deleteBtn.addEventListener("dblclick", function() {
     localStorage.clear()
@@ -39,9 +50,11 @@ deleteBtn.addEventListener("dblclick", function() {
     render(myLeads)
 })
 
-inputBtn.addEventListener("click", function() {
-    myLeads.push(inputEl.value)
-    inputEl.value = ""
-    localStorage.setItem("myLeads", JSON.stringify(myLeads) )
-    render(myLeads)
+inputBtn.addEventListener("click", function () {
+    if (inputEl.value) {
+        myLeads.push(inputEl.value)
+        inputEl.value = ""
+        localStorage.setItem("myLeads", JSON.stringify(myLeads))
+        render(myLeads)
+    } 
 })
