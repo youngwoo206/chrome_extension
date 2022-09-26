@@ -18,7 +18,7 @@ if (leadsFromLocalStorage) {
 tabBtn.addEventListener("click", function(){    
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
         myLeads.push(tabs[0].url)
-        localStorage.setItem("myLeads", JSON.stringify(myLeads) )
+        localStorage.setItem("myLeads", JSON.stringify(myLeads))
         render(myLeads)
     })
 })
@@ -28,18 +28,18 @@ function render(leads) {
     for (let i = 0; i < leads.length; i++) {
         listItems += `
             <li>
-                <a target='_blank' href='${leads[i]}'>${leads[i]}</a><input type='checkbox' id="link_${i}"> 
+                <a target='_blank' href='${leads[i]}'>${leads[i]}</a><input type='checkbox' id="link_${i}" value="yes"> 
             </li>
         `
     }
     ulEl.innerHTML = listItems
+    
 }
 
-deleteChecked.addEventListener("dblclick", function () {
-    //not working
-    if (link) {
-        console.log("is checked")
-    }
+deleteChecked.addEventListener("click", function () {
+
+    alert(document.getElementById("link_0").innerText)
+
 })
 
 
